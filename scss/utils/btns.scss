@@ -1,0 +1,103 @@
+@use "variables" as variables;
+
+.btn {
+
+    width: 12rem;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    background-color: variables.$ktm-orange;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    cursor: pointer;
+
+    @include variables.respond-to("tablet") {
+
+        width: 8rem;
+
+    }
+
+    @include variables.respond-to("mobile") {
+        
+        width: 8rem;
+        margin-top: 1rem;
+        margin-left: 0;
+        height: 3.5rem;
+
+    }
+
+    &:hover {
+
+        background-color: rgba(0, 0, 0, 0);
+        color: variables.$ktm-orange;
+        border: 1px solid variables.$ktm-orange;
+
+    }
+
+    &ModelPageCard {
+
+        width: 95%;
+        height: 3.4rem;
+        margin: 10%;
+
+    }
+
+    &SignUp {
+
+
+        justify-content: space-around;
+        margin: 0 0 0 2rem;
+        background-color: white;
+        color: variables.$ktm-orange;
+        border: 1px solid variables.$ktm-orange;
+        transition: background-color 0.4s ease, color 0.4s ease;
+
+        svg {
+
+            display: none;
+            width: 2rem;
+            height: 2rem;
+            color: white;
+
+        }
+
+        &:hover {
+
+            background-color: variables.$ktm-orange;
+            color: white;
+
+            svg {
+
+                display: block;
+
+            }
+
+        }
+
+    }
+
+}
+
+.btnCarousel {
+
+    width: 3rem;
+    height: 3px;
+    border-radius: 2px;
+    margin: 0;
+    background-color: #FFF;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    flex: none;
+    position: static;
+
+    &.active {
+
+        background-color: variables.$ktm-orange;
+        opacity: 1;
+
+    }
+
+}

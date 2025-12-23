@@ -1,0 +1,441 @@
+@use "../utils/variables" as variables;
+
+.carousel {
+
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+.carouselItems {
+
+    display: flex;
+    height: 100vh;
+    width: 400vw;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: transform 0.5s ease-in-out;
+    overflow-x: visible;
+    position: static;
+}
+
+.carouselArticle {
+
+    display: flex;
+    flex: 0 0 100vw;
+    position: relative;
+    height: 100%;
+    overflow-x: visible;
+
+    img {
+
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+    }
+
+}
+
+.article {
+
+    position: absolute;
+    top: 40vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    .phrase {
+
+        font-size: 2rem;
+        color: white;
+        letter-spacing: 3px;
+
+    }
+
+    .titular {
+
+        font-size: 5rem;
+        color: white;
+        letter-spacing: 6px;
+
+    }
+
+    @include variables.respond-to("mobile") {
+
+        margin-top: 5rem;
+
+        .phrase {
+
+            font-size: 1.2rem;
+
+        }
+
+        .titular {
+
+            font-size: 2.5rem;
+
+        }
+
+        a {
+
+            width: 8rem;
+            height: 4rem;
+            font-size: 1.2rem;
+            color: white;
+
+        }
+
+    }
+
+
+
+}
+
+
+.buttonPanel {
+
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    margin-bottom: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2rem;
+    width: auto;
+    height: auto;
+    padding: 0;
+
+}
+
+
+.utilityBar {
+
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid variables.$ktm-orange;
+    background-color: black;
+    height: 7rem;
+
+    ul {
+
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 2rem;
+        justify-content: center;
+        align-items: center;
+        width: 80vw;
+
+    }
+
+    @include variables.respond-to("tablet") {
+
+        height: auto;
+        width: 100vw;
+        align-items: baseline;
+
+        ul {
+
+            flex-direction: column;
+            align-items: baseline;
+            row-gap: 2rem;
+            margin: 2rem 0rem 2rem 2rem;
+            width: 100vw;
+
+        }
+
+    }
+
+}
+
+.utilityItem {
+
+    align-items: center;
+    cursor: pointer;
+
+    a {
+
+        display: flex;
+        align-items: center;
+
+        svg {
+            height: 3rem;
+            width: 3rem;
+            margin-right: 1rem;
+
+        }
+
+        p {
+
+            color: white;
+
+        }
+
+        filter: grayscale(100%);
+        transition: filter 0.4s ease;
+
+        @include variables.respond-to("tablet") {
+
+            filter: grayscale(0%);
+
+        }
+    }
+
+    a:hover {
+
+        filter: grayscale(0);
+
+    }
+
+
+}
+
+.recentLaunch {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+
+    h2 {
+
+        display: flex;
+        justify-content: center;
+        font-size: 5rem;
+        letter-spacing: 8px;
+
+        @include variables.respond-to("desktop-sm") {
+
+            font-size: 4rem;
+
+        }
+
+        @include variables.respond-to("tablet") {
+
+            font-size: 2.5rem;
+
+        }
+
+        @include variables.respond-to("mobile") {
+
+            font-size: 1.2rem;
+
+        }
+
+    }
+}
+
+.recentLaunchCardsContainer {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 4rem;
+    margin-top: 5rem;
+    width: 80%;
+
+    @include variables.respond-to("desktop-sm") {
+
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+}
+
+.discoverKtmContainer {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+
+    h3 {
+
+        font-size: 5rem;
+        letter-spacing: 8px;
+
+        @include variables.respond-to("tablet") {
+
+            font-size: 3rem;
+
+        }
+
+        @include variables.respond-to("mobile") {
+
+            font-size: 1.5rem;
+
+        }
+
+    }
+
+}
+
+.styleBikeDiscoverPlace {
+
+    display: flex;
+    margin-top: 5rem;
+    gap: 20px;
+    cursor: pointer;
+
+    @include variables.respond-to("laptop") {
+
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 3rem;
+
+    }
+
+}
+
+.discoverMerchandisingContainer {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80vw;
+    margin-top: 5rem;
+    gap: 2rem;
+
+    @include variables.respond-to("tablet") {
+
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+    @include variables.respond-to("mobile") {
+
+        margin-top: 3rem;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 2rem;
+
+    }
+
+}
+
+.ktmXBowDiscoverPlace {
+
+    margin-top: 5rem;
+
+}
+
+.ktmNews {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 5rem;
+
+    h3 {
+
+        font-size: 5rem;
+        letter-spacing: 2px;
+
+        @include variables.respond-to("laptop") {
+
+            font-size: 4rem;
+
+        }
+
+        @include variables.respond-to("tablet") {
+
+            font-size: 2.5rem;
+
+        }
+
+        @include variables.respond-to("mobile") {
+
+            font-size: 2.5rem;
+
+        }
+
+    }
+
+}
+
+.newsCardContainer {
+
+    margin-top: 4rem;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    overflow: hidden;
+    margin-bottom: 3rem;
+
+    @include variables.respond-to("laptop") {
+
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
+}
+
+.ktmNewsJoin {
+
+    display: flex;
+    align-items: center;
+    margin-top: 5rem;
+
+    p {
+
+        font-size: 1.25rem;
+
+    }
+
+    @include variables.respond-to("mobile") {
+
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+
+        a {
+
+            margin-top: 1rem;
+            margin-left: 0;
+
+        }
+
+    }
+
+
+}
+
+.disclaimerSection {
+
+    margin-top: 5rem;
+    border-top: 1px solid rgb(97, 94, 94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+
+
+    p {
+
+        margin: 3rem 0 3rem 0;
+        color: rgb(97, 94, 94);
+        width: 70vw;
+        text-align: center;
+
+        @include variables.respond-to("laptop") {
+
+            width: 80vw;
+
+        }
+
+    }
+
+}

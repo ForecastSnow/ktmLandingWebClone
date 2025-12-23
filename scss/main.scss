@@ -1,0 +1,20 @@
+@use "./utils/reset";
+
+@use "./utils/global";
+
+@use "./utils/font";
+
+
+@use "./utils/btns.scss";
+
+@use "./utils/cards.scss";
+
+@use "./utils/heroBanners.scss";
+
+
+
+@use "./components/navBar";
+
+@use "./pages/index";
+
+@use "./components/footer";

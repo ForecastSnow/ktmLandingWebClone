@@ -1,0 +1,29 @@
+//colors
+
+$ktm-orange: #ff6501;
+
+
+//breakpoinsts
+
+$breakpoints: (
+    "mobile": 530px,
+    "tablet": 768px,
+    "laptop": 1024px,
+    "desktop-sm": 1280px
+);
+
+@mixin respond-to($breakpoint) {
+
+    @if map-has-key($breakpoints, $breakpoint) {
+        $value: map-get($breakpoints, $breakpoint);
+
+        @media (max-width: $value) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "the '#{$breakpoint}' does not exist in the list. Check variables.scss";
+    }
+
+}

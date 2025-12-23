@@ -1,0 +1,586 @@
+@use "../utils/variables" as variables;
+
+.nav {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 10;
+
+    &.completedIndexActive {
+
+        background-color: black;
+        overflow: hidden;
+        height: 100dvh;
+
+    }
+}
+
+h1 {
+
+    display: none;
+
+}
+
+.basicNavContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    li {
+
+        align-items: center;
+        justify-content: center;
+
+    }
+
+
+
+    &.completedIndexActive {
+
+        border-bottom: 1px solid white;
+        background-color: black;
+
+    }
+
+
+
+}
+
+.basicNav {
+
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+
+    @include variables.respond-to("desktop-sm") {
+
+        width: 100vw;
+
+    }
+
+    @include variables.respond-to("laptop") {
+
+        justify-content: end;
+
+    }
+
+}
+
+.basicIndexContainer {
+
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    gap: 2rem;
+
+    .indexNameCategory {
+
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+
+            color: variables.$ktm-orange;
+
+
+        }
+
+        &.selected {
+
+            color: variables.$ktm-orange;
+
+        }
+
+    }
+
+    @include variables.respond-to("desktop-sm") {
+
+        margin-left: 5%;
+
+    }
+
+    @include variables.respond-to("laptop") {
+
+        display: none;
+
+    }
+
+}
+
+.burgerNavToggle {
+
+    display: block;
+    position: absolute;
+    top: 3.6rem;
+    left: 5rem;
+    height: auto;
+    cursor: pointer;
+
+    .burgerNavToggleLines {
+
+        display: none;
+        width: 1.5rem;
+        height: 1.5rem;
+
+        &.disable {
+
+            display: none;
+
+        }
+
+        @include variables.respond-to("laptop") {
+
+            display: block;
+
+        }
+
+    }
+
+    .burgerNavToggleCross {
+
+        display: none;
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: variables.$ktm-orange;
+
+        &.active {
+
+            display: block;
+
+        }
+
+    }
+
+    @include variables.respond-to("desktop-sm") {
+
+        display: block;
+        left: 1rem;
+
+    }
+
+    @include variables.respond-to("laptop") {
+
+        display: block;
+        top: 2.9rem;
+        left: 3rem;
+
+    }
+
+    @include variables.respond-to("mobile") {
+
+        top: 1.8rem;
+        left: 2rem;
+
+
+    }
+
+}
+
+.iconsAndLogo {
+
+    display: flex;
+    align-items: center;
+
+}
+
+.littleIconContainer {
+
+    display: flex;
+    margin-right: 1rem;
+
+    .littleIcon {
+
+        height: 1.5rem;
+        width: 1.5rem;
+        margin-right: 1.2rem;
+
+        @include variables.respond-to("mobile") {
+
+            height: 1.125rem;
+            width: 1.125rem;
+            margin-right: 1rem;
+
+        }
+
+    }
+
+}
+
+.ktmLogo {
+
+    width: 10rem;
+    height: 9rem;
+
+    @include variables.respond-to("laptop") {
+
+        width: 9rem;
+        height: 7.2rem;
+
+    }
+
+    @include variables.respond-to("mobile") {
+
+        width: 5rem;
+        height: 4.5rem;
+
+    }
+
+}
+
+.completedIndex {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    .basicIndexContainer {
+
+        display: none;
+        height: 100%;
+        width: 100%;
+        font-size: 1.3rem;
+
+        .indexNameCategory {
+
+            color: white;
+            cursor: pointer;
+            margin-bottom: 1rem;
+
+            &:hover {
+
+                color: variables.$ktm-orange;
+
+
+            }
+
+            &.selected {
+
+                color: variables.$ktm-orange;
+
+            }
+
+        }
+
+        &.completedIndexActive {
+
+            display: block;
+
+        }
+
+        @include variables.respond-to("laptop") {
+
+            font-size: 1rem;
+            margin: 2rem;
+            display: none;
+
+        }
+
+    }
+
+}
+
+.indexCategoryContainer {
+
+    display: none;
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+    grid-template-columns: 2fr 5fr;
+
+    &.active {
+
+        display: grid;
+
+    }
+
+    @include variables.respond-to("desktop-sm") {
+
+        grid-template-columns: 1fr 4fr;
+
+
+    }
+
+    @include variables.respond-to("laptop") {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    @include variables.respond-to("mobile") {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+.extendedCategory {
+
+    display: flex;
+    flex-direction: column;
+    padding-left: 40%;
+    border-right: 1px solid white;
+    margin-bottom: 1rem;
+
+    a {
+
+        color: white;
+        margin-top: 2rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+
+        &:hover {
+
+            color: variables.$ktm-orange;
+
+        }
+
+    }
+
+    @include variables.respond-to("desktop-sm") {
+
+        place-items: start;
+        padding-left: 20%;
+        padding-right: 20%;
+
+    }
+
+    @include variables.respond-to("laptop") {
+
+        border-right: 0;
+        padding: 0;
+
+        a {
+
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            margin-left: 0.5rem;
+
+        }
+
+    }
+
+
+}
+
+.bikeCategory {
+
+    color: white;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+
+    &:hover {
+
+        color: variables.$ktm-orange;
+
+    }
+
+    &.selected {
+
+        color: variables.$ktm-orange;
+
+    }
+
+    @include variables.respond-to("laptop") {
+
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        margin-left: 0.5rem;
+
+    }
+
+    @include variables.respond-to("mobile") {
+
+        margin-top: 1.5rem;
+        font-size: 0.8rem;
+
+    }
+
+}
+
+.subExtendedCategoryContainer {
+
+
+    min-width: 100%;
+    display: contents;
+
+}
+
+.subExtendedCategory {
+
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+    margin: 0;
+
+    &.active {
+
+        display: grid;
+        grid-template-columns: 3fr 5fr;
+
+        @include variables.respond-to("desktop-sm") {
+
+            display: flex;
+            flex-direction: column;
+
+
+        }
+
+        @include variables.respond-to("tablet") {}
+
+    }
+
+}
+
+.discoverTypeOfBike {
+
+    min-width: 100%;
+    padding: 5% 0% 5% 0%;
+    border-right: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+
+        color: white;
+        font-size: 5rem;
+        margin-bottom: 2rem;
+
+    }
+
+    @include variables.respond-to("desktop-sm") {
+
+        border-right: 0;
+        border-bottom: 1px solid white;
+
+    }
+
+    @include variables.respond-to("laptop") {
+
+        display: none;
+        min-height: 100%;
+
+        p {
+
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+
+    }
+
+    @include variables.respond-to("mobile") {
+
+        p {
+
+            font-size: 3rem;
+            margin-bottom: 0rem;
+        }
+
+    }
+
+}
+
+.modelsTypeOfBike {
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    align-items: start;
+    overflow-y: auto;
+
+
+    @include variables.respond-to("tablet") {
+
+        display: block;
+        overflow-x: hidden;
+        height: 100%;
+
+    }
+
+}
+
+.typeOfBikeList {
+
+    color: white;
+    margin: 2% 0% 0% 0%;
+    font-size: 1.2rem;
+
+    p {
+
+        margin: 0% 2% 3% 5%;
+        font-size: 1.7rem;
+
+    }
+
+    div {
+
+        display: flex;
+        flex-direction: column;
+
+        a {
+
+            margin: 0% 2% 3% 5%;
+            font-size: 1.2rem;
+
+            &:hover {
+
+                color: variables.$ktm-orange;
+
+            }
+
+        }
+
+    }
+
+    @include variables.respond-to("laptop") {
+
+        p {
+
+            font-size: 1rem;
+
+        }
+
+        div {
+
+            a {
+
+                font-size: 1rem;
+
+            }
+
+        }
+
+    }
+
+    @include variables.respond-to("mobile") {
+
+        p {
+
+            font-size: 1rem;
+
+        }
+
+        div {
+
+            a {
+
+                font-size: 1rem;
+
+            }
+
+        }
+
+    }
+
+}
